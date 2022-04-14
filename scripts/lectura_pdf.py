@@ -21,7 +21,12 @@ def leer_pdf(ruta_pdf):
     descripciones = datos_3[referencia_inicio:referencia_fin]
     autorizacion = datos_3[2]
 
-    return descripciones, autorizacion, cod_af
+    print(datos_3)
+    # for dato in datos_3:
+    #     print(dato)
+    # print(descripciones)
+
+    # return descripciones, autorizacion, cod_af
 
 
 def armar_descripciones(lista_desc):
@@ -34,13 +39,22 @@ def armar_descripciones(lista_desc):
     lista_desc.insert(1, descripcion)
 
 
-datos_pdf, autorizacion, afiliado = leer_pdf("PdfPrueba.pdf")
-armar_descripciones(datos_pdf)
-troquel = datos_pdf[0]
-descripcion_material = datos_pdf[1]
-cantidad = int(float(datos_pdf[2]))
-print(f"Codigo de TROQUEL: {troquel}")
-print(f"Descripcion de MATERIAL: {descripcion_material}")
-print(f"CANTIDAD: {cantidad}")
-print(f"NRO DE AUTORIZACION: {autorizacion}")
-print(f"Codigo de AFILIADO: {afiliado}")
+ruta_pdfs = "C:/Users/aalarcon/Desktop/OyP/IMPLEMENTACION CON GITHUB/COMEI/pdfs"
+
+for pdf in os.listdir(ruta_pdfs):
+
+    leer_pdf(ruta_pdfs + "/" + pdf)
+    print("")
+    # armar_descripciones(datos_pdf)
+    #
+    # troquel = datos_pdf[0]
+    # descripcion_material = datos_pdf[1]
+    # cantidad = int(float(datos_pdf[2]))
+    #
+    # print(f"Codigo de TROQUEL: {troquel}", end=" ")
+    # print(f"Descripcion de MATERIAL: {descripcion_material}", end=" ")
+    # print(f"CANTIDAD: {cantidad}", end=" ")
+    # print(f"NRO DE AUTORIZACION: {autorizacion}", sep=" -- ")
+    # print(f"Codigo de AFILIADO: {afiliado}", sep=" -- ")
+    # print("")
+    # print("")
