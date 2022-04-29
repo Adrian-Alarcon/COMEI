@@ -60,6 +60,7 @@ for pdf in os.listdir(ruta_pdfs):
         descripciones_y_troquel = nueva_lista[d]
         troquel, nombre_medicacion = separa_troquel_descr(descripciones_y_troquel)
         cantidades = nueva_lista[marcador + d]
-        print(f"Nro TROQUEL: {troquel} | NOMBRE MEDICACION: {nombre_medicacion} | CANTIDAD: {int(float(cantidades))}")
+        print(f"AFILIADO: {afiliado} | Nro TROQUEL: {troquel} | NOMBRE MEDICACION: {nombre_medicacion} | CANTIDAD: {int(float(cantidades))}")
+    print("----------------------------------------------------")
 
         # Aca llamar a una funcion que se encargue de cargar todos los datos en un excel
