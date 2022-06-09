@@ -5,7 +5,7 @@ import datetime
 # VARIABLES
 usuario = getuser()
 ahora = datetime.datetime.now()
-fecha_actual = ahora.strftime("%d-%m-%Y - %H:%M:%S")
+fecha_actual = ahora.strftime("%d-%m-%Y - %H-%M-%S")
 print(fecha_actual)
 
 # --> obtenemos la ruta del directorio actual.

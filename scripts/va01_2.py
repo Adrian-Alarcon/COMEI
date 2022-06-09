@@ -1,9 +1,12 @@
 import win32com.client as win32
 import pythoncom
 import win32com.client
-import time
+from time import sleep
+from datetime import datetime
+ahora = datetime.now()
+hoy = ahora.strftime("%d.%m.%Y")
 
-def va01_2(sesionsap, canal, sector, ped_ext, dispone, fecha_entrega, lista_id_productos, cantidades, convenio, lista_descripciones):
+def va01_2(sesionsap, canal, sector, dispone, ped_ext, lista_id_productos, cantidades):
 
      pythoncom.CoInitialize()
 
@@ -41,7 +44,7 @@ def va01_2(sesionsap, canal, sector, ped_ext, dispone, fecha_entrega, lista_id_p
           session.findById("wnd[0]/usr/ctxtVBAK-SPART").caretPosition = 2
           session.findById("wnd[0]").sendVKey(0)
           session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/txtVBKD-BSTKD").text = ped_ext
-          session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/subPART-SUB:SAPMV45A:4701/ctxtKUAGV-KUNNR").text = "20000123"
+          session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/subPART-SUB:SAPMV45A:4701/ctxtKUAGV-KUNNR").text = "30000455"
           session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/subPART-SUB:SAPMV45A:4701/ctxtKUWEV-KUNNR").text = dispone
           session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/txtVBKD-BSTKD").setFocus()
           session.findById("wnd[0]/usr/subSUBSCREEN_HEADER:SAPMV45A:4021/txtVBKD-BSTKD").caretPosition = 8
@@ -76,7 +79,7 @@ def va01_2(sesionsap, canal, sector, ped_ext, dispone, fecha_entrega, lista_id_p
           session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\10").select()
           session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\12").select()
           session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\13").select()
-          session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\13/ssubSUBSCREEN_BODY:SAPMV45A:4312/sub8309:SAPMV45A:8309/ctxtVBAK-ZZCONVENIO").text = convenio
+          session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\13/ssubSUBSCREEN_BODY:SAPMV45A:4312/sub8309:SAPMV45A:8309/ctxtVBAK-ZZCONVENIO").text = "001"
           session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\13/ssubSUBSCREEN_BODY:SAPMV45A:4312/sub8309:SAPMV45A:8309/ctxtVBAK-ZZCONVENIO").caretPosition = 2
           session.findById("wnd[0]").sendVKey(0)
           session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\13/ssubSUBSCREEN_BODY:SAPMV45A:4312/sub8309:SAPMV45A:8309/ctxtVBAK-ZZTURNO").text = "MAN"
@@ -85,7 +88,7 @@ def va01_2(sesionsap, canal, sector, ped_ext, dispone, fecha_entrega, lista_id_p
 
           #Hace falta agregar una excepcion en este punto?
           session.findById("wnd[0]/tbar[0]/btn[11]").press()
-          time.sleep(3)
+          sleep(3)
           ped = session.findById("wnd[0]/sbar").text
           ped_final = ped[18:25]
           return ped_final
