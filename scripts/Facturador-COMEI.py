@@ -1,11 +1,11 @@
+import os
+from shutil import move
 import rutas
 from va01_2 import va01_2
 from zsd_toma import toma
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
-from tkinter import messagebox
-from getpass import getuser
 from shutil import copy
 from lectura_pdf import leer_pdfs
 from time import sleep
@@ -13,7 +13,6 @@ from excel import LecturaDatosExcel
 
 
 def interfaz():
-     user = getuser()
      root = Tk()
      root.title("FACTURADOR_COMEI")
      root.resizable(0,0)
@@ -85,7 +84,10 @@ def interfaz():
                     break
                afiliado_anterior = afiliado_actual
           datos_excel.guardar_cerrar_excel(cerrar=True)
-
+          try:
+               move(rutas.excel_copia_trabajo, rutas.carpeta_excel_procesados)
+          except:
+               print("No se pudo mover el archivo excel a la carpeta de Archivos Procesados.")
      
      def lecturaPdfs():
           resultado_lectura = leer_pdfs()

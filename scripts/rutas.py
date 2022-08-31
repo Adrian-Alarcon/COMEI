@@ -1,12 +1,12 @@
 import os
-from getpass import getuser
+import getpass
 import datetime
 
 # VARIABLES
-usuario = getuser()
+usuario = getpass.getuser()
 ahora = datetime.datetime.now()
 fecha_actual = ahora.strftime("%d-%m-%Y - %H-%M-%S")
-print(fecha_actual)
+print(usuario)
 
 # --> obtenemos la ruta del directorio actual.
 directorio_raiz = f"C:/Users/{usuario}/Documents/Clientes Carga Automatica/COMEI"
@@ -21,7 +21,7 @@ archivo_excel_padre = directorio_archivos + "/" + "ComeiPadre.xlsx"
 # --> Ruta carpeta de pdfs.
 carpeta_pdfs = os.path.join(directorio_raiz, "pdfs")
 carpeta_pdf_procesados = os.path.join(directorio_raiz, "pdf_procesados")
-carpeta_pdf_no_procesados = os.path.join(directorio_raiz, "pdf_procesados")
+carpeta_excel_procesados = os.path.join(directorio_raiz, "Archivos Procesados", f"{fecha_actual} - ComeiPadronTrabajoSap.xlsx")
 
 
 

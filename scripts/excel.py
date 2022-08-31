@@ -13,8 +13,11 @@ class LecturaDatosExcel:
         self.__wb = None
 
     def abrir_workbook(self, nombre_hoja):
-        self.excel = load_workbook(self.ruta_excel, data_only=True)
-        self.__wb = self.excel[f"{nombre_hoja}"]
+        try:
+            self.excel = load_workbook(self.ruta_excel, data_only=True)
+            self.__wb = self.excel[f"{nombre_hoja}"]
+        except FileNotFoundError:
+            return "Error al intentar abrir el archivo pasado como parametro."
 
     def max_filas(self, col: str):
         max_filas = self.inicio_filas
