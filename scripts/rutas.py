@@ -19,7 +19,7 @@ excel_copia_trabajo = directorio_archivos + "/" + f"{fecha_actual} - ComeiPadron
 archivo_excel_padre = directorio_archivos + "/" + "ComeiPadre.xlsx"
 
 # --> Ruta carpeta de pdfs.
-carpeta_pdfs = os.path.join(directorio_raiz, "pdfs")
+carpeta_pdfs = os.path.join(directorio_raiz, "pdf")
 carpeta_pdf_procesados = os.path.join(directorio_raiz, "pdf_procesados")
 carpeta_pdf_no_procesados = os.path.join(directorio_raiz, "pdf_no_procesados")
 carpeta_excel_procesados = os.path.join(directorio_raiz, "Archivos Procesados", f"{fecha_actual} - ComeiPadronTrabajoSap.xlsx")
