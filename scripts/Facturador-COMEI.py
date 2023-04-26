@@ -101,4 +101,4 @@ def interfaz():
 
      root.mainloop()
 
-interfaz()
+#interfaz()
